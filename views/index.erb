@@ -1,0 +1,17 @@
+<script>
+var total = <%= JSON.generate(@msg["total"]) %>
+
+</script>
+<h1>Balance for Address:<%= @msg["address"] %></h1>
+<h2>Total Balance:<span id="tbalance"></span></h2>
+<h2>Total Recieved:<span id="trecieved"></span></h2>
+<h2>Total spent:<span id="tsent"></span></h2>
+
+<script>
+
+$(function(){
+	$("#tbalance").text(0.00000001*total['balance'])
+	$("#trecieved").text(0.00000001*total['received'])
+	$("#tsent").text(0.00000001*total['sent'])
+})
+</script>
